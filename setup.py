@@ -8,8 +8,8 @@ requires = [
     'xhtml2pdf',
     'pdfjinja',
     'pdfkit',
-    'StringIO',
     'pdb',
+    'pyramid_debugtoolbar',
 ]
 
 setup(name='tutorial',

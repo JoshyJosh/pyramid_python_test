@@ -6,8 +6,6 @@ import pdb
 
 from io import StringIO
 
-from pdfjinja import PdfJinja
-
 
 #First view, available att http://localhost:6543
 @view_config(route_name='home', renderer='home.jinja2')
@@ -36,12 +34,14 @@ def create_pdf(request):
     session = request.session
     #pdf = pdfkit.from_url('www.wikipedia.org', '/pdfnew/foo.pdf')
     #return {'name': 'Anger rising', 'pdf': '/pdfnew/foo.pdf'}
-    if 'foo' in request.GET:
+    if 'name' in request.GET:
         result = str(render('tutorial:pdfgen.jinja2', {'name': request.GET['foo']}, request=request))
-        session['foo']=request.GET['foo']
+        session['name']=request.GET['foo']
+        request.session['name'] = session['name']
     else:
         result = str(render('tutorial:pdftest.jinja2', {}, request=request))
-        session['foo']='nofoo'
+        session['name']='nofoo'
+        request.session['name'] = session['name']
     print(result);
 
     pdffileio = StringIO()

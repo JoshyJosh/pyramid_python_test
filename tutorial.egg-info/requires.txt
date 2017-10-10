@@ -1,5 +1,9 @@
 pyramid
 pyramid_jinja2
 wkhtmltopdf
+reportlab
 xhtml2pdf
 pdfjinja
+pdfkit
+pdb
+pyramid_debugtoolbar
